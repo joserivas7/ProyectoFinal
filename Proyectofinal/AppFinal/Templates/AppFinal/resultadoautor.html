@@ -24,12 +24,11 @@
 <h5 style="margin-left: 90px">{{ ti.titulo }} </h5>
 <h5 style="margin-left: 90px">{{ ti.subtitulo }} </h5>
 <p style="margin-left: 90px">{{ ti.parrafo }} </p>
-<p style="margin-left: 90px">{{ ti.autor }} </p>
 
 
 
 
-<a class="btn btn-outline-info" style="margin-left: 80px" href=>Conoce mas!</a>
+<a class="btn btn-outline-info" style="margin-left: 80px" href="{% url 'blog' ti.id%} ">Conoce mas!</a>
 {% if user.is_authenticated %}
 <a class="btn btn-outline-danger" style="margin-left: 300px" href="{% url 'eliminarblog' ti.id %}">Eliminar</a>
 <a class="btn btn-outline-success" style="margin-left: 5px" href="{% url 'editarblog' ti.id %}">Editar</a>
