@@ -1,0 +1,41 @@
+{% extends "AppFinal/Padre.html" %}
+
+{% load static %}
+
+{% block Titulo %}
+
+<center><h3>{{ mensaje }}</h3></center>
+
+<br>
+
+<br>
+
+
+
+
+<h5 style="margin-left: 90px"> Foro de mensaje</h5>
+{% if user.is_authenticated %}
+<p style="margin-left: 1000px"> Click para enviar un mensaje.</p>
+<a class="btn btn-outline-info" style="margin-left: 1000px" href="{% url 'crearmensaje' %}" method="POST" enctype="multipart/form-data">Crear Mensaje</a>
+
+{% else %}
+{% endif %}
+
+
+{% for men in msj %}
+
+
+<br>
+
+<h6 style="margin-left: 90px"> De: {{ men.emisor }} </h6>
+<h6 style="margin-left: 90px"> Para : {{ men.receptor }} </h6>
+<p style="margin-left: 90px">{{ men.cuerpo }} </p>
+
+<br>
+
+
+
+{% endfor %}
+
+
+{% endblock %}

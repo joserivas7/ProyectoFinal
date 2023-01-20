@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        {% load static %}
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>InfoGamers</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'AppFinal/assets/images.png' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'AppFinal/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'listadeblog' %}">Blogs</a></li> 
+                        
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'listademensaje' %}">Chat</a></li> 
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" style="margin-left: 20px" href="{% url 'editarperfil' %}"> Hola "{{ user.username }}"</a></li>
+                        <a href="{% url 'editaravatar' %}"><img src="{{ avatar }}" width="40px" height="40px" style="margin-right: 20px"></a>
+                        
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Salir</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registrate</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'login' %}">Ingresa</a></li>
+                        
+                        {% endif %}
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        {% block Titulo %}
+
+ 
+        <!-- Page header with logo and tagline-->
+        <header class="py-5 bg-light border-bottom mb-4" style="background-image: url('https://i.blogs.es/a909e7/unreal/1366_521.jpg')">
+            <div class="container">
+                <div class="text-center my-5" >
+                    <h1 class="fw-bolder">InfoGamers!</h1>
+                    <p class="lead mb-2">Informacion sobre el mundo Gamers.</p>
+                </div>
+            </div>
+        </header>
+        <!-- Page content-->
+        <div class="container">
+            <div class="row">
+                <!-- Blog entries-->
+                <div class="col-lg-8">
+                    <!-- Featured blog post-->
+                    <div class="card mb-4">
+                        <a href="{% url 'blog1' %}"><img class="card-img-top" src="https://sm.ign.com/t/ign_es/news/g/god-of-war/god-of-war-ragnarok-developer-strongly-encourages-players-to_psun.h720.jpg" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">Enero 03, 2023</div>
+                            <h2 class="card-title">¿No es el mejor juego del 2022?</h2>
+                            <p class="card-text">God of War Ragnarök no es el mejor juego del 2022 según Metacritic... pero casi!</p>
+                            <a class="btn btn-outline-info" href="{% url 'blog1' %}">Conoce mas! →</a>
+                        </div>
+                    </div>
+                    <!-- Nested row for non-featured blog posts-->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <!-- Blog post-->
+                            <div class="card mb-4">
+                                <a href="{% url 'blog2' %}"><img class="card-img-top" src="https://eloutput.com/wp-content/uploads/2021/02/xbox-series-x-analisis-23.jpg" alt="..." /></a>
+                                <div class="card-body">
+                                    <div class="small text-muted">Enero 03, 2023</div>
+                                    <h2 class="card-title h4">Xbox Series S/X</h2>
+                                    <p class="card-text">Seran estas consolas suficientemente poderosas para enfrentar al monstruo Japones?</p>
+                                    <a class="btn btn-outline-info" href="{% url 'blog2' %}">Conoce mas! →</a>
+                                </div>
+                            </div>
+                            <!-- Blog post-->
+                            <div class="card mb-4">
+                                <a href="{% url 'blog3' %}"><img class="card-img-top" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ps5-sony-consola-1600378972.jpg" alt="..." /></a>
+                                <div class="card-body">
+                                    <div class="small text-muted">Enero 03, 2023</div>
+                                    <h2 class="card-title h4">Aumento de Precio</h2>
+                                    <p class="card-text">Sony anuncia una subida de precio en la PS5. ¿Que ha pasado?</p>
+                                    <a class="btn btn-outline-info" href="{% url 'blog3' %}">Conoce mas! →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- Blog post-->
+                            <div class="card mb-4">
+                                <a href="{% url 'blog5' %}"><img class="card-img-top" src="https://as01.epimg.net/meristation/imagenes/2020/11/24/noticias/1606194356_842742_1606194452_noticia_normal.jpg" alt="..." /></a>
+                                <div class="card-body">
+                                    <div class="small text-muted">Enero 03, 2023</div>
+                                    <h2 class="card-title h4">Los 10! mejores juegos de la PS5</h2>
+                                    <p class="card-text">Los mas jugados en PS5 plantean la duda de si realmente los exclusivos son tan importantes.</p>
+                                    <a class="btn btn-outline-info" href="{% url 'blog5' %}">Conoce mas! →</a>
+                                </div>
+                            </div>
+                            <!-- Blog post-->
+                            <div class="card mb-4">
+                                <a href="{% url 'blog4' %}"><img class="card-img-top" src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2022/01/nintendo-switch-2591877.jpg?tf=3840x" alt="..." /></a>
+                                <div class="card-body">
+                                    <div class="small text-muted">Enero 03, 2023</div>
+                                    <h2 class="card-title h4">Nintendo Switch</h2>
+                                    <p class="card-text">4 razones por las que nos gusta la nueva Nintendo Switch.</p>
+                                    <a class="btn btn-outline-info" href="{% url 'blog4' %}">Conoce mas! →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pagination-->
+                    <nav aria-label="Pagination">
+                        <hr class="my-0" />
+                        <ul class="pagination justify-content-center my-4">
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
+                            <li class="page-item " aria-current="page"><a class="page-link" href="{% url 'inicio' %}">1</a></li>
+                            <li class="page-item "><a class="page-link" href="{% url 'pagina2' %}">2</a></li>
+                            <li class="page-item "><a class="page-link" href="{% url 'construccion' %}">3</a></li>
+                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                            <li class="page-item"><a class="page-link" href="{% url 'construccion' %}">10</a></li>
+                            <li class="page-item"><a class="page-link" href="{% url 'inicio' %}">Older</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Search widget-->
+                    <br>
+                    <div class="card mb-4">
+                        <div class="card-header">Busca tu Blog</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <form  style="margin-left: 40px" action="{% url 'buscar' %}" method="GET"> {% csrf_token %}
+
+                                    <input type="text" name="titulo"  placeholder="Ingresa un titulo" >
+                                
+                                    <br>
+                                    <br>
+                                    <input class="btn btn-outline-info" style="margin-left: 170px" type="submit">
+                                    
+                                    
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <!-- Categories widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Sitios oficiales!! / los Mas Grandes. </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="https://www.playstation.com/es-ar/">Playstation</a></li>
+                                        <li><a href="https://www.xbox.com/es-AR">Xbox</a></li>
+                                        <li><a href="https://www.nintendo.com/es-ar/">Nintento</a></li>
+                                        <li><a href="https://videojuegos.roams.es/rankings/mejores-videojuegos/">Videojuegos</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <!-- Side widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">! Sumate a InfoGamers !</div>
+                        <div class="card-body">Quieres ser parte de InfoGamers? completa nuestro formulario, para ponernos en contacto y puedas formar parte de nuestro equipo.</div>
+                        <a class="btn btn-outline-info" href="{% url 'crearpersona' %}">Sumate →</a>
+                        {% if user.is_authenticated %}
+                        <a class="btn btn-outline-info" href="{% url 'listadepersonas' %}">Personas a contactar →</a>
+                        {% else %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endblock %}
+        <!-- Footer-->
+        <footer class="py-5 bg-dark" style="margin: 100px ">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; InfoGamers 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'AppFinal/js/scripts.js' %}"></script>
+    </body>
+</html>

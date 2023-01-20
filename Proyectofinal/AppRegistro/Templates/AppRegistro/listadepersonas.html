@@ -1,0 +1,37 @@
+{% extends "AppFinal/Padre.html" %}
+
+{% load static %}
+
+{% block Titulo %}
+
+<center><h3>{{ mensaje }}</h3></center>
+
+<br>
+
+<br>
+
+
+
+
+<h5 style="margin-left: 90px"> Lista de Personas</h5>
+
+
+{% for per in Perso %}
+
+
+<br>
+<br>
+
+<p style="margin-left: 90px">Nombre : {{ per.nombre }} </P>
+<P style="margin-left: 90px">Apellido : {{ per.apellido }} </p>
+<p style="margin-left: 90px">Email : {{ per.email }} </p>
+<p style="margin-left: 90px">DNI : {{ per.dni }} </p>
+
+
+<br>
+
+
+{% endfor %}
+
+
+{% endblock %}

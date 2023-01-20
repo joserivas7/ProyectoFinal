@@ -1,0 +1,55 @@
+{% extends "AppFinal/Padre.html" %}
+
+{% load static %}
+
+{% block Titulo %}
+
+<center><h3>{{ mensaje }}</h3></center>
+
+<br>
+
+<br>
+
+
+
+
+<h5 style="margin-left: 90px"> Lista de Blogs</h5>
+{% if user.is_authenticated %}
+<p style="margin-left: 1000px"> Click para crea un nuevo blog.</p>
+<a class="btn btn-outline-info" style="margin-left: 1000px" href="{% url 'crearblog' %}" method="POST" enctype="multipart/form-data">Crear Nuevo Blog</a>
+
+
+
+{% else %}
+{% endif %}
+
+{% for blogs in blog %}
+
+
+<br>
+<img src="{{ blogs.imagen.url }}" alt="" style="margin-left: 70px" width="450" height="300">
+<p class="text-muted fst-italic mb-2" style="margin-left: 90px">{{ blogs.autor }} </p>
+<p class="text-muted fst-italic mb-2" style="margin-left: 90px">{{ blogs.creado }} </p>
+<h5 style="margin-left: 90px">{{ blogs.titulo }} </h5>
+<h5 style="margin-left: 90px">{{ blogs.subtitulo }} </h5>
+<p style="margin-left: 90px">{{ blogs.parrafo }} </p>
+
+
+
+
+
+<a class="btn btn-outline-info" style="margin-left: 80px" href="{% url 'blog' blogs.id %}">Conoce mas!</a>
+{% if user.is_authenticated %}
+<a class="btn btn-outline-danger" style="margin-left: 300px" href="{% url 'eliminarblog' blogs.id %}">Eliminar</a>
+<a class="btn btn-outline-success" style="margin-left: 5px" href="{% url 'editarblog' blogs.id %}">Editar</a>
+{% else %}
+{% endif %}
+<br>
+<br>
+<br>
+
+
+{% endfor %}
+
+
+{% endblock %}

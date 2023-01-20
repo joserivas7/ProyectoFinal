@@ -1,0 +1,126 @@
+{% extends "AppFinal/Padre.html" %}
+
+{% load static %}
+
+{% block Titulo %}
+
+<header class="py-5 bg-light border-bottom mb-4" style="background-image: url('https://i.blogs.es/a909e7/unreal/1366_521.jpg')">
+    <div class="container">
+        <div class="text-center my-5" >
+            <h1 class="fw-bolder">InfoGamers!</h1>
+            <p class="lead mb-2">Informacion sobre el mundo Gamers.</p>
+        </div>
+    </div>
+</header>
+<!-- Page content-->
+<div class="container">
+    <div class="row">
+        <!-- Blog entries-->
+        <div class="col-lg-8">
+
+            <!-- Nested row for non-featured blog posts-->
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <a href="{% url 'construccion' %}"><img class="card-img-top" src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/PUPSQP6QPZBKHHD67TJCSLVOQE.jpg" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">Enero 03, 2023</div>
+                            <h2 class="card-title h4">Elden Ring</h2>
+                            <p class="card-text">Elden Ring ha sido el juego más completado y más abandonado de 2022.</p>
+                            <a class="btn btn-outline-info" href="{% url 'construccion' %}">Conoce mas! →</a>
+                        </div>
+                    </div>
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <a href="{% url 'construccion' %}"><img class="card-img-top" src="https://cdn2.unrealengine.com/ea-sports-fifa-23-is-coming-to-the-epic-games-store-1920x1080-398e19351a82.jpg" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">Enero 03, 2023</div>
+                            <h2 class="card-title h4">FIFA 23</h2>
+                            <p class="card-text">Es el mejor lanzamiento de la saga al lograr un récord histórico durante su primera semana.</p>
+                            <a class="btn btn-outline-info" href="{% url 'construccion' %}">Conoce mas! →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <a href="{% url 'construccion' %}"><img class="card-img-top" src="https://www.infobae.com/new-resizer/1xSt7G4mtWVtkTK2Q3XSXLiES7E=/992x661/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/V7CKKC7T6JERRFSP3KKS56QCVU.jpg" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">Enero 03, 2023</div>
+                            <h2 class="card-title h4">Nuevo campeón de League of Legends</h2>
+                            <p class="card-text">En una final de película, DRX le ganó al T1 de Faker.</p>
+                            <a class="btn btn-outline-info" href="{% url 'construccion' %}">Conoce mas! →</a>
+                        </div>
+                    </div>
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <a href="{% url 'construccion' %}"><img class="card-img-top" src="https://media.tycsports.com/files/2022/11/08/502723/fifa-23-argentina_862x485.webp" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">Enero 03, 2023</div>
+                            <h2 class="card-title h4">Argentina Campeona</h2>
+                            <p class="card-text">FIFA 23 predice al campeón del Mundial de fútbol Qatar 2022.</p>
+                            <a class="btn btn-outline-info" href="{% url 'construccion' %}">Conoce mas! →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination-->
+            <nav aria-label="Pagination">
+                <hr class="my-0" />
+                <ul class="pagination justify-content-center my-4">
+                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
+                    <li class="page-item active" aria-current="page"><a class="page-link" href="{% url 'inicio' %}">1</a></li>
+                    <li class="page-item"><a class="page-link" href="{% url 'pagina2' %}">2</a></li>
+                    <li class="page-item"><a class="page-link" href="{% url 'construccion' %}">3</a></li>
+                    <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                    <li class="page-item"><a class="page-link" href="{% url 'construccion' %}">10</a></li>
+                    <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Side widgets-->
+        <div class="col-lg-4">
+            <!-- Search widget-->
+            <div class="card mb-4">
+                <div class="card-header">Search</div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Categories widget-->
+            <div class="card mb-4">
+                <div class="card-header">Lo mas leido..</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">Web Design</a></li>
+                                <li><a href="#!">HTML</a></li>
+                                <li><a href="#!">Freebies</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">JavaScript</a></li>
+                                <li><a href="#!">CSS</a></li>
+                                <li><a href="#!">Tutorials</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Side widget-->
+            <div class="card mb-4">
+                <div class="card-header">Side Widget</div>
+                <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

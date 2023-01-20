@@ -1,0 +1,43 @@
+{% extends "AppFinal/Padre.html" %}
+
+{% load static %}
+
+{% block Titulo %}
+
+<br>
+
+<br>
+
+
+
+<a href="{% url 'listadeblog' %}" method="POST" enctype="multipart/form-data"></a>{% csrf_token %}
+
+
+{% for blogs in blogs %}
+
+
+<br>
+<h1 class="fw-bolder mb-1" style="margin-left: 90px">{{ blogs.titulo }} </h1>
+<p class="text-muted fst-italic mb-2" style="margin-left: 90px"> {{ blogs.creado }} </p>
+<p class="text-muted fst-italic mb-2" style="margin-left: 90px">by {{ blogs.autor }} </p>
+<img class="mb-4" src="{{ blogs.imagen.url }}" alt="" style="margin-left: 70px" width="740" height="480">
+<br>
+<br>
+<h2 style="margin-left: 90px">{{ blogs.subtitulo }} </h2>
+<p style="margin-left: 90px">{{ blogs.parrafo }} </p> 
+<p style="margin-left: 90px ; margin-right: 400px;">{{ blogs.parrafoamplio }} </p>
+
+
+
+
+
+<br>
+<br>
+<br>
+
+
+{% endfor %}
+
+
+{% endblock %}
+
